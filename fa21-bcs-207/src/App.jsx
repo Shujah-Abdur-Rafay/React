@@ -1,14 +1,12 @@
-import './App.css'
-import Button from './component/Button'
+import Admin from "./component/Admin";
+
 
 function App() {
-
-  return (
-    
-
-  <Button/>      
-  
-  )
+  return(
+   <Admin/>
+  );
 }
 
-// export default App
+export default App;
+
+
