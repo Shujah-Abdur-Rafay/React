@@ -20,7 +20,7 @@ function Carosal() {
           style={imageStyle}
         />
         <Carousel.Caption>
-          <h3 style={{ color: 'red' }}>First slide label</h3>
+          <h3 style={{ color: 'red' }}>Instant Disposal</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -31,7 +31,7 @@ function Carosal() {
           style={imageStyle}
         />
         <Carousel.Caption>
-          <h3 style={{ color: 'red' }} >Second slide label</h3>
+          <h3 style={{ color: 'red' }} >Home Services</h3>
                </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -42,7 +42,7 @@ function Carosal() {
           style={imageStyle}
         />
         <Carousel.Caption>
-          <h3 style={{ color: 'red' }}>Third slide label</h3>
+          <h3 style={{ color: 'red' }}>Reasonable Upgrades</h3>
                   </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
