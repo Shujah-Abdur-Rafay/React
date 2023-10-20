@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-// import { Link } from "react-router-dom";
 
 function Menubar() {
 
@@ -19,12 +18,16 @@ function Menubar() {
     paddingBottom: '0px', // Increase or decrease this value to adjust the bottom padding
     fontSize: '26px', // Adjust font size as needed
     lineHeight: '1', // Adjust line height as needed
+    height:'70px',
   };
 
   const brname ={
     fontSize: '40px',
   }
 
+
+
+  
 
   return (
     <Navbar expand="lg" className="bg-warning fixed-top" style={navbarStyle}>
@@ -33,7 +36,7 @@ function Menubar() {
           <img
             src="/images/logo.png"
             alt="CellBazaar Logo"
-            height="100" // Adjust the height to make it smaller
+            height="65" // Adjust the height to make it smaller
             style={logoStyle}
           />
 
@@ -62,6 +65,12 @@ function Menubar() {
             <Nav.Link href="https://www.google.com/maps/place/Jadoon+Plaza+Phase+2/@34.1897549,73.2354551,20.68z/data=!4m6!3m5!1s0x38de3050d3f2d077:0xc60029e9e1da82aa!8m2!3d34.1895787!4d73.2355318!16s%2Fg%2F11d_7ysgcr?entry=ttu" >
               Location
             </Nav.Link>
+
+            
+            <Nav.Link href="Product">Inventory</Nav.Link>
+
+
+
           </Nav>
           
           <Form className="d-flex">

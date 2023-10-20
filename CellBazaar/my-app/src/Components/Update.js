@@ -1,10 +1,9 @@
 import React from 'react';
 
-function View() {
+function Update() {
 
 
   return (
-
 <div
       style={{
         display: 'block',
@@ -18,25 +17,25 @@ function View() {
         textAlign: 'center',
       }}
     >
-      <h2>View Record</h2>
+      <h2> Updation Process </h2>
       <p style={{ fontSize: '18px' }}>Enter Model Number:</p>
       <input
         type="text"
-        style={{ width: '222px', height: '40px', fontSize: '16px' }} 
+        style={{ width: '248px', height: '40px', fontSize: '16px' }} 
 
       />
       
       <br />
       <button style={{ padding: '10px 20px', fontSize: '16px' }}>Cancel</button>
       <button
-        style={{ backgroundColor: 'green', color: 'white', padding: '10px 20px', fontSize: '16px' }}
+        style={{ backgroundColor: 'Yellow', color: 'black', padding: '10px 20px', fontSize: '16px' }}
       >
-        View Record
+         Confirm Update
       </button>
     </div>
 
-
+    
 );
 
 }
-export default View;
+export default Update;

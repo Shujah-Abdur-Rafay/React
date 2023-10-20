@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup'; 
+import CardGroup from 'react-bootstrap/CardGroup';
 
 function Products() {
-  const cells = [
+  const [groupedCells, setGroupedCells] = useState([]);
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const cells = [
     {
       "image": "/images/ad1.jpg",
       "price": "RS. 10,000",
@@ -91,44 +95,57 @@ function Products() {
     },
   ];
 
+  // Group the cells
   const groupedCells = [];
   for (let i = 0; i < cells.length; i += 3) {
     groupedCells.push(cells.slice(i, i + 3));
   }
 
-  const cardTextStyle = {
-    fontSize: '22px', //  font size 
-  };
+  setGroupedCells(groupedCells);
 
-  const cardTitleStyle = {
-    fontSize: '30px', //font size of card title
-  };
- 
-  return (
-    <div className="mx-3">
-      {groupedCells.map((group, groupIndex) => (
-        <CardGroup key={groupIndex} className="mb-3">
-          {group.map((product, index) => (
-            <Card key={index} className="mb-4 mx-4" style={{ borderRadius: '15px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
-              <Card.Img variant="top" src={product.image} style={{ borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }} />
-              <Card.Body>
-                <Card.Title style={cardTitleStyle}>{product.price}</Card.Title>
-                <Card.Text style={cardTextStyle}>
-                  {product.name}<br />
-                  {product.description}
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer>
-              <small className="text-muted" style={{ fontSize: '18px' }}>{product.lastUpdated}</small>
-              </Card.Footer>
-            </Card>
-          ))}
-        </CardGroup>
-      ))}
-    </div>
-  );
-  
-  
+  // Update the counter every 5 seconds
+  const interval = setInterval(() => {
+    setCounter(counter + 5);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, [counter]);
+
+const cardTextStyle = {
+  fontSize: '18px',
+};
+
+const cardTitleStyle = {
+  fontSize: '20px',
+};
+
+return (
+  <div className="mx-5">
+    {groupedCells.map((group, groupIndex) => (
+      <CardGroup key={groupIndex} className="mb-5">
+        {group.map((product, index) => (
+          <Card
+            key={index}
+            className="mb-4 mx-4"
+            style={{ borderRadius: '15px', boxShadow: '0 6px 18px rgba(0, 0, 0, 0.1)' }}
+          >
+            <Card.Img variant="top" src={product.image} style={{ borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }} />
+            <Card.Body>
+              <Card.Title style={cardTitleStyle}>{product.price}</Card.Title>
+              <Card.Text style={cardTextStyle}>
+                {product.name}<br />
+                {product.description}
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <small className="text-muted" style={{ fontSize: '12px' }}>{product.lastUpdated}</small>
+            </Card.Footer>
+          </Card>
+        ))}
+      </CardGroup>
+    ))}
+  </div>
+);
 }
 
 export default Products;
