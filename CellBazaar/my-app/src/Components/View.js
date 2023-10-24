@@ -28,11 +28,20 @@ const ProductView = ({ productId }) => {
   };
 
   return (
-    <div className="mx-5">
+   
+    <div  style={{paddingLeft:'30%'}}  >
       <CardGroup>
-        <Card className="mb-4" style={{ borderRadius: '10px', boxShadow: '0 3px 6px rgba(0, 0, 0, 0.1)' }}>
-          <Card.Img variant="top" src={product.image} style={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
-          <Card.Body>
+      <Card>
+      <Card.Img
+           variant="top"
+           src={product.image}
+          style={{
+      borderTopLeftRadius: '10px',
+      borderTopRightRadius: '10px',
+      width: '500px', // Adjust the width to your desired size
+  }}
+/>
+ <Card.Body>
             <Card.Title style={cardTitleStyle}>{product.price}</Card.Title>
             <Card.Text style={cardTextStyle}>
               {product.name}<br />
@@ -42,6 +51,7 @@ const ProductView = ({ productId }) => {
         </Card>
       </CardGroup>
     </div>
+   
   );
 };
 
