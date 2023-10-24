@@ -3,6 +3,7 @@ import Menubar from './Navbr'
 import Carosal from './Carosal'
 import Ftr from './Ftr'
 import Products from './CardS'
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
@@ -31,19 +32,20 @@ export default function LandingPage() {
 
 
 <div style={{ margin: '20px 0', textAlign: 'center' }}>
-<button
-  style={{
-    padding: '10px 30px', 
-    borderRadius: '50px', 
-    fontSize: '25px', 
-    backgroundColor: 'orange', 
-    color: 'white', 
-  }}
->
-  VIEW MORE COLLECTION
-  
-</button>
-</div>
+    <Link to="/Product">
+      <button
+        style={{
+          padding: '10px 30px',
+          borderRadius: '50px',
+          fontSize: '25px',
+          backgroundColor: 'orange',
+          color: 'white',
+        }}
+      >
+        VIEW MORE COLLECTION
+      </button>
+    </Link>
+  </div>
 
 
 

@@ -3,12 +3,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
 function Product() {
-  const [cart, setCart] = useState([]); // Initialize an empty shopping cart
 
-  const handleAddToCart = (product) => {
-    // Add the selected product to the cart
-    setCart([...cart, product]);
-  };
 
   const cardTextStyle = {
     fontSize: '18px',

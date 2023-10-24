@@ -5,7 +5,10 @@ import Update from "./Update";
 import View from "./View";
 import { useContext } from "react";
 import {type} from "../App";
+
+
 function Admin() {
+
   const typ=useContext(type);
   return (
     <div>
@@ -22,10 +25,10 @@ function Admin() {
 {/* Starting tag */}
 <div className="row align-items-end" style={{ borderTop: "6px solid black ", height: "75vh" }}>
 
-{typ=="add" &&<Add/>}
-{typ=="view" &&<View/>}
-{typ=="update" &&<Update/>}
-{typ=="delete" &&<Delete/>}
+{typ==="add" &&<Add/>}
+{typ==="view" &&<View/>}
+{typ==="update" &&<Update/>}
+{typ==="delete" &&<Delete/>}
 
 
 

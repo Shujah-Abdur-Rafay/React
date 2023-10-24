@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
+
 function Products() {
   const [groupedCells, setGroupedCells] = useState([]);
   const [counter, setCounter] = useState(0);
@@ -9,6 +10,7 @@ function Products() {
   useEffect(() => {
     const cells = [
     {
+      "productId": "1" ,
       "image": "/images/ad1.jpg",
       "price": "RS. 10,000",
       "name": "Iphone 6s",
@@ -16,6 +18,7 @@ function Products() {
       "lastUpdated": "Last updated 3 mins ago"
     },
     {
+      "productId": "2" ,
       "image": "/images/ad2.jpg",
       "price": "RS. 60,000",
       "name": "Iphone 8-plus",
@@ -23,6 +26,7 @@ function Products() {
       "lastUpdated": "Last updated 1 day ago"
     },
     {
+      "productId": "3" ,
       "image": "/images/ad3.jpg",
       "price": "RS. 35,000",
       "name": "Iphone 8-plus",
@@ -30,6 +34,7 @@ function Products() {
       "lastUpdated": "Last updated 4 hours ago"
     },
     {
+      "productId": "4" ,
       "image": "/images/ad4.jpg",
       "price": "RS. 40,000",
       "name": "Iphone XR",
@@ -37,6 +42,7 @@ function Products() {
       "lastUpdated": "Last updated 46 mins ago"
     },
     {
+      "productId": "5" ,
       "image": "/images/ad5.jpg",
       "price": "RS. 70,000",
       "name": "Iphone 11",
@@ -44,6 +50,7 @@ function Products() {
       "lastUpdated": "Last updated half an hour ago"
     },
     {
+      "productId": "6" ,
       "image": "/images/ad6.jpg",
       "price": "RS. 185,000",
       "name": "Iphone 13 pro max",
@@ -51,6 +58,7 @@ function Products() {
       "lastUpdated": "Last updated 4 days ago"
     },
     {
+      "productId": "7" ,
       "image": "/images/ad7.jpg",
       "price": "RS. 110,000",
       "name": "Iphone 11 pro max",
@@ -58,6 +66,7 @@ function Products() {
       "lastUpdated": "Last updated 2 weeks ago"
     },
     {
+      "productId": "8" ,
       "image": "/images/ad8.jpg",
       "price": "RS. 135,000",
       "name": "Iphone 13 pro",
@@ -65,13 +74,15 @@ function Products() {
       "lastUpdated": "Last updated 7 hours ago"
     },
     {
+      "productId": "9" ,
       "image": "/images/ad9.jpg",
       "price": "RS. 85,000",
       "name": "Iphone XS",
       "description": "Official PTA Approved / Black",
       "lastUpdated": "Last updated 46 mins ago"
     },
-    {
+    { 
+      "productId": "10" ,
       "image": "/images/ad10.jpg",
       "price": "RS. 42,000",
       "name": "Iphone X",
@@ -79,6 +90,7 @@ function Products() {
       "lastUpdated": "Last updated half an hour ago"
     },
     {
+      "productId": "11" ,
       "image": "/images/ad11.jpg",
       "price": "RS. 110,000",
       "name": "Iphone 11",
@@ -86,7 +98,7 @@ function Products() {
       "lastUpdated": "Last updated one day ago"
     },
     {
-  
+      "productId": "12" ,
       "image": "/images/ad12.jpg",
       "price": "RS. 125,000",
       "name": "Iphone 11 pro max ",

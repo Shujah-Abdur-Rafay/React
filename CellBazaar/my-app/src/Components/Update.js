@@ -16,6 +16,7 @@ function Update() {
         borderRadius: '8px',
         textAlign: 'center',
       }}
+      
     >
       <h2> Updation Process </h2>
       <p style={{ fontSize: '18px' }}>Enter Model Number:</p>
