@@ -32,7 +32,7 @@ function Menubar() {
   return (
     <Navbar expand="lg" className="bg-warning fixed-top" style={navbarStyle}>
       <Container fluid>
-        <Navbar.Brand href="#" style={brname}>
+        <Navbar.Brand href="../" style={brname}>
           <img
             src="/images/logo.png"
             alt="CellBazaar Logo"
@@ -48,7 +48,9 @@ function Menubar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+
+
+            <Nav.Link href="../">Home</Nav.Link>
 
 
             {/* <Nav.Link href="#action2">Sell</Nav.Link> */}
