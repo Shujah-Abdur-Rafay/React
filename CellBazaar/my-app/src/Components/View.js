@@ -29,7 +29,7 @@ const ProductView = ({ productId }) => {
 
   return (
    
-    <div  style={{paddingLeft:'30%'}}  >
+    <div  style={{paddingLeft:'31%',paddingRight:'31.6%',paddingTop:'3%'}}  >
       <CardGroup>
       <Card>
       <Card.Img

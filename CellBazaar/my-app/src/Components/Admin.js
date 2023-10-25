@@ -1,43 +1,36 @@
+
+import React, { useContext } from "react";
 import Admnu from "./Admnu";
 import Add from "./Add";
 import Delete from "./Delete";
 import Update from "./Update";
 import View from "./View";
-import { useContext } from "react";
-import {type} from "../App";
-
+import { type } from "../App";
 
 function Admin() {
+  const adminType = useContext(type);
 
-  const typ=useContext(type);
+  const getViewComponent = () => {
+    switch (adminType) {
+      case "add":
+        return <Add/>;
+      case "view":
+        return <View />;
+      case "update":
+        return <Update />;
+      case "delete":
+        return <Delete/>;
+    }
+  }
+
   return (
-    <div>
-<div className="container-fluid" style={{border: "3px", height: "100vh" }}>
-
-
-<div className="row align-items-end" style={{ border: "3px", height: "25vh" }}>
-  <Admnu />
-</div>
-
-
-
-
-{/* Starting tag */}
-<div className="row align-items-end" style={{ borderTop: "6px solid black ", height: "75vh" }}>
-
-{typ==="add" &&<Add/>}
-{typ==="view" &&<View/>}
-{typ==="update" &&<Update/>}
-{typ==="delete" &&<Delete/>}
-
-
-
-</div>
-{/* Ending tag */}
-
-
-
-</div>
+    <div className="container-fluid">
+      <div className="row align-items-end">
+        <Admnu />
+      </div>
+      <div style={{marginTop:'1em'}}  className="row align-items-end">
+        {getViewComponent()}
+      </div>
     </div>
   );
 }
