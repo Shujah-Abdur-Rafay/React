@@ -41,7 +41,7 @@ const ProductView = ({ productId }) => {
       width: '500px', // Adjust the width to your desired size
   }}
 />
- <Card.Body>
+   <Card.Body>
             <Card.Title style={cardTitleStyle}>{product.price}</Card.Title>
             <Card.Text style={cardTextStyle}>
               {product.name}<br />
@@ -49,7 +49,7 @@ const ProductView = ({ productId }) => {
             </Card.Text>
           </Card.Body>
         </Card>
-      </CardGroup>
+   </CardGroup>
     </div>
    
   );
