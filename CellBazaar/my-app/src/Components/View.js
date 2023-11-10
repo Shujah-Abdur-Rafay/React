@@ -7,7 +7,7 @@ const ProductView = ({ productId }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // Find the product in the JSON data by matching the productId
+    
     const selectedProduct = products.find((p) => p.productId === productId);
 
     if (selectedProduct) {
@@ -20,11 +20,11 @@ const ProductView = ({ productId }) => {
   }
 
   const cardTextStyle = {
-    fontSize: '16px', // Adjust font size
+    fontSize: '16px', 
   };
 
   const cardTitleStyle = {
-    fontSize: '18px', // Adjust font size
+    fontSize: '18px', 
   };
 
   return (
@@ -38,7 +38,7 @@ const ProductView = ({ productId }) => {
           style={{
       borderTopLeftRadius: '10px',
       borderTopRightRadius: '10px',
-      width: '500px', // Adjust the width to your desired size
+      width: '500px',
   }}
 />
    <Card.Body>
@@ -60,7 +60,7 @@ const View = () => {
   const [isViewing, setIsViewing] = useState(false);
 
   const handleViewButtonClick = () => {
-    // You can set the viewProductId based on user input or other interactions
+   
     setIsViewing(true);
   };
 
