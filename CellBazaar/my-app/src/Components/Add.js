@@ -29,8 +29,7 @@ function Add() {
   };
 
   const getRandomMobileInfo = () => {
-    // You can implement logic to fetch random mobile data here
-    // For simplicity, let's generate random values for now
+    
     setFormData({
       name: 'Random Phone',
       variant: 'Variant A',
@@ -41,13 +40,13 @@ function Add() {
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault(); 
   };
 
   return (
     <div style={formContainer}>
       <h2 style={mainTextCenter}>Entry Details</h2>
-      <form onSubmit={handleFormSubmit}> {/* Add onSubmit handler to prevent form submission */}
+      <form onSubmit={handleFormSubmit}> 
         <div className="mb-1">
           <label htmlFor="name" className="form-label">
             Phone Name:
