@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 {
-const url ="mongodb+srv://Shujah:shujah239@cluster0.qs1ln9x.mongodb.net/?retryWrites=true&w=majority"
+const url ="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(url)
 .then(() => console.log("connected to db"))
