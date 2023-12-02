@@ -1,61 +1,25 @@
-// import mongoose from "mongoose";
-// {
-// const url ="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority"
-
-// mongoose.connect(url)
-// .then(() => console.log("connected to db"))
-// .catch(() => console.log("NOT connected")) ;
-
-// }
-import express from 'express';
-import mongoose from 'mongoose';
-
-
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import cors from "cors";
+import express from "express";
 
 
 const app = express();
-const port = 5000;
 
-app.use(bodyParser.json({extends:true}));
+const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority";
 
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/test').then(()=>console.log("connected"));
-
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
+mongoose.connect(url).then(()=>{
+  console.log("connected to mongodb ");
+}).catch(()=>{
+  console.log("kuch ghalt hogya hai");
 });
 
-// Define a schema and model for your messages
-const messageSchema = new mongoose.Schema({
-  message: String,
-});
+app.listen(5000);
 
-const Message = mongoose.model('Message', messageSchema);
+app.use(cors());
+app.use(bodyParser.json({extended : true}));
+app.use(bodyParser.urlencoded({extended : true}));
 
-// Your existing GET route
-app.get('/', (req, res) => {
-  res.send('Hello from the server!');
-});
-
-// New POST route to receive and store data
-app.post('/api/sendMessage', async (req, res) => {
-  const { message } = req.body;
-
-  // Save message to the database
-  try {
-    const newMessage = new Message({ message });
-    await newMessage.save();
-    console.log('Message saved to MongoDB:', message);
-    res.status(200).json({ status: 'Message received and saved successfully' });
-  } catch (error) {
-    console.error('Error saving message to MongoDB:', error.message);
-    res.status(500).json({ status: 'Error saving message to MongoDB' });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.use("/",(req , res)=>{
+  console.log("apka msg backend py ping kr gya hai");
 });
