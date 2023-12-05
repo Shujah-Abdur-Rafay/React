@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { sendMessageViaAxios } from '../Services/api';
 
 function Add() {
   const [formData, setFormData] = useState({
     name: '',
-    variant: '',
-    color: '',
+    id:"",
+    image: '',
     price: '',
     description: '',
   });
@@ -12,6 +13,10 @@ function Add() {
   const mainTextCenter = {
     textAlign: 'center',
   };
+  const onChange=(e)=>{
+    setFormData({...formData,[e.target.name]:e.target.value});
+    
+  }
 
   const formContainer = {
     backgroundColor: '#ffeecc',
@@ -28,15 +33,18 @@ function Add() {
     height: '30px',
   };
 
-  const getRandomMobileInfo = () => {
+  const getRandomMobileInfo =async () => {
     
-    setFormData({
-      name: 'Random Phone',
-      variant: 'Variant A',
-      color: 'Black',
-      price: '$999',
-      description: 'Lorem ipsum description',
-    });
+    // setFormData({
+    //   name: 'Random Phone',
+    //   variant: 'Variant A',
+    //   color: 'Black',
+    //   price: '$999',
+    //   description: 'Lorem ipsum description',
+    // });
+    
+    await sendMessageViaAxios(formData);
+    
   };
 
   const handleFormSubmit = (e) => {
@@ -56,32 +64,36 @@ function Add() {
             className="form-control"
             id="name"
             name="name"
+            onChange={onChange}
             style={inputStyle}
             value={formData.name}
           />
         </div>
         <div className="mb-1">
-          <label htmlFor="variant" className="form-label">
-            Variant:
+          <label htmlFor="name" className="form-label">
+            Phone id:
           </label>
           <input
             type="text"
             className="form-control"
-            id="variant"
-            name="variant"
+            id="name"
+            name="id"
+            onChange={onChange}
             style={inputStyle}
-            value={formData.variant}
+            value={formData.id}
           />
         </div>
+      
         <div className="mb-1">
           <label htmlFor="color" className="form-label">
-            Color:
+            Image:
           </label>
           <input
             type="text"
             className="form-control"
             id="color"
-            name="color"
+            name="image"
+            onChange={onChange}
             style={inputStyle}
             value={formData.color}
           />
@@ -95,6 +107,7 @@ function Add() {
             className="form-control"
             id="price"
             name="price"
+            onChange={onChange}
             style={inputStyle}
             value={formData.price}
           />
@@ -107,6 +120,7 @@ function Add() {
             className="form-control"
             id="description"
             name="description"
+            onChange={onChange}
             style={inputStyle}
             value={formData.description}
           />

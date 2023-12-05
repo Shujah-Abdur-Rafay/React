@@ -4,13 +4,12 @@ const productSchema = new mongoose.Schema({
 
 
 
-  productId: Number,
+  productId: String,
   image: String,
-  price: Number,
+  price: String,
   name: String,
   description: String,
   lastUpdated: String,
-
 
   
 });

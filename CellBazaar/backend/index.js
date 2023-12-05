@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
+import productModel from "./models/productmodel.js";
 
 
 const app = express();
@@ -14,12 +15,23 @@ mongoose.connect(url).then(()=>{
   console.log("kuch ghalt hogya hai");
 });
 
+
 app.listen(5000);
 
 app.use(cors());
 app.use(bodyParser.json({extended : true}));
 app.use(bodyParser.urlencoded({extended : true}));
 
-app.use("/",(req , res)=>{
-  console.log("apka msg backend py ping kr gya hai");
+app.post("/cellBazaar",async (req , res)=>{
+  
+const post=new productModel({
+  productId: req.body.id,
+  name:req.body.name,
+  image:req.body.image,
+  price:req.body.price,
+  description:req.body.description,
+  lastUpdated:Date(),
+});
+console.log("Data Entered");
+await post.save();
 });
