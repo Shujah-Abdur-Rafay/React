@@ -11,12 +11,28 @@ function Delete() {
 setView({id:e.target.value});
 
  }
- const onClick=async()=>{
-  const res=await getViaAxios();
-  let rep=res.data.filter((itm)=>itm.productId===view.id);
-  alert(JSON.stringify(rep));
-  deleteViaAxios(rep[0]._id)
- }
+
+
+
+
+
+ const onClick = async () => {
+  try {
+    const res = await getViaAxios();
+    const rep = res.data.filter((itm) => itm.productId === view.id);
+
+    if (rep.length === 0) {
+      alert("Product not found for the given ID");
+    } else {
+      alert("DELETED");
+      await deleteViaAxios(rep[0]._id);
+    }
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    alert('Error deleting product. Please try again.');
+  }
+};
+
 
 
   return (

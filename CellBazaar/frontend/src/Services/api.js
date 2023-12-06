@@ -3,7 +3,7 @@ import axios from "axios"
 const url = "http://localhost:5000";
 
 export const sendMessageViaAxios = async (data) => {
-    alert(JSON.stringify(data));
+    alert("ADDED");
    await axios.post(`${url}/cellBazaar`,data);
 };
 export const getViaAxios = async () => {
