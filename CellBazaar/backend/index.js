@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import productModel from "./models/productmodel.js";
+import SignUpModel from "./models/signupmodel.js";
 
 
 const app = express();
@@ -32,6 +33,7 @@ const post=new productModel({
   description:req.body.description,
   lastUpdated:Date(),
 });
+
 console.log("Data Entered");
 await post.save();
 });
@@ -47,4 +49,21 @@ console.log(phones);
   
     const id=req.params.id.slice(1);
     await productModel.findByIdAndDelete(id);
+      });
+
+
+      app.post("/cellBazaarsignup", async (req, res) => {
+        try {
+          const post = new SignUpModel({
+            username: req.body.username,
+            password: req.body.password,
+            phoneNo: req.body.phoneNo,
+          });
+      
+          await post.save();
+          res.json(post);
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: 'Internal Server Error' });
+        }
       });

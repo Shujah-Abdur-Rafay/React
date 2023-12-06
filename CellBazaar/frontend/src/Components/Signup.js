@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import login from './Login.css';
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
-import { sendMessageViaAxios } from '../Services/api';
+import { senduserViaAxios } from '../Services/api';
 
 export default function Signup() {
     // State variables to store user input
@@ -21,7 +21,7 @@ export default function Signup() {
 
         console.log("data collected from sign up page ",userData);
 
-        sendMessageViaAxios(userData);
+        senduserViaAxios(userData);
     };
 
     return (

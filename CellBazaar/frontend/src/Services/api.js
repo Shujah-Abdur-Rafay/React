@@ -12,3 +12,8 @@ export const getViaAxios = async () => {
 export const deleteViaAxios = async (id) => {
     return await axios.post(`${url}/cellBazaardel/:${id}`,id);
   };
+
+  export const senduserViaAxios = async (userData) => {
+    alert("youre registered");
+   await axios.post(`${url}/cellBazaarsignup`,userData);
+};
