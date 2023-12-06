@@ -6,3 +6,9 @@ export const sendMessageViaAxios = async (data) => {
     alert(JSON.stringify(data));
    await axios.post(`${url}/cellBazaar`,data);
 };
+export const getViaAxios = async () => {
+  return await axios.get(`${url}/cellBazaar`);
+};
+export const deleteViaAxios = async (id) => {
+    return await axios.post(`${url}/cellBazaardel/:${id}`,id);
+  };

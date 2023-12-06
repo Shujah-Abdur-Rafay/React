@@ -35,3 +35,16 @@ const post=new productModel({
 console.log("Data Entered");
 await post.save();
 });
+
+app.get("/cellBazaar",async (req , res)=>{
+  
+const phones=await productModel.find();
+res.json(phones);
+console.log(phones);
+  });
+
+  app.post("/cellBazaardel/:id",async (req , res)=>{
+  
+    const id=req.params.id.slice(1);
+    await productModel.findByIdAndDelete(id);
+      });

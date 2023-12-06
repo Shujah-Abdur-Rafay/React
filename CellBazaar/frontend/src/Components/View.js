@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import products from './products.json';
+import { getViaAxios } from '../Services/api';
 
 const ProductView = ({ productId }) => {
   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    
-    const selectedProduct = products.find((p) => p.productId === productId);
+  useEffect(async() => {
+    const res=await getViaAxios();
+    const selectedProduct = res.data.find((p) => p.productId === productId);
 
     if (selectedProduct) {
       setProduct(selectedProduct);
