@@ -5,7 +5,7 @@ function Update() {
 
   return (
 <div
-      style={{
+      style={ {
         display: 'block',
         position: 'fixed',
         top: '50%',

@@ -44,6 +44,13 @@ function Products() {
     fontSize: '20px',
   };
 
+  const cardImageStyle = {
+    borderTopLeftRadius: '15px',
+    borderTopRightRadius: '15px',
+    height: '390px', // Set a fixed height for the images
+    objectFit: 'cover', // Ensure the image covers the designated area
+  };
+
   return (
     <div className="mx-5">
       {groupedCells.map((group, groupIndex) => (
@@ -52,12 +59,16 @@ function Products() {
             <Card
               key={index}
               className="mb-4 mx-4"
-              style={{ borderRadius: '15px', boxShadow: '0 6px 18px rgba(0, 0, 0, 0.1)' }}
+              style={{
+                borderRadius: '15px',
+                boxShadow: '0 6px 18px rgba(0, 0, 0, 0.1)',
+                width: '300px', // Set a fixed width for the cards
+              }}
             >
               <Card.Img
                 variant="top"
                 src={product.image}
-                style={{ borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }}
+                style={cardImageStyle}
               />
               <Card.Body>
                 <Card.Title style={cardTitleStyle}>{product.price}</Card.Title>
