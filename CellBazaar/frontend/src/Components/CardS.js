@@ -47,8 +47,16 @@ function Products() {
   const cardImageStyle = {
     borderTopLeftRadius: '15px',
     borderTopRightRadius: '15px',
-    height: '390px', // Set a fixed height for the images
+    width: '100%', // Set image width to 100% within the card
+    height: '200px', // Adjust the height to your preferred size
     objectFit: 'cover', // Ensure the image covers the designated area
+  };
+
+  const cardStyle = {
+    borderRadius: '15px',
+    boxShadow: '0 6px 18px rgba(0, 0, 0, 0.1)',
+    width: '250px', // Adjust the width of the cards
+    height: '380px', // Set a fixed height for the cards
   };
 
   return (
@@ -59,11 +67,7 @@ function Products() {
             <Card
               key={index}
               className="mb-4 mx-4"
-              style={{
-                borderRadius: '15px',
-                boxShadow: '0 6px 18px rgba(0, 0, 0, 0.1)',
-                width: '300px', // Set a fixed width for the cards
-              }}
+              style={cardStyle}
             >
               <Card.Img
                 variant="top"
@@ -92,112 +96,3 @@ function Products() {
 }
 
 export default Products;
-
-
-
-
-
-
-
-
-
-
-
-  //   const cells = [
-  //   {
-  //     "productId": "1" ,
-  //     "image": "/images/ad1.jpg",
-  //     "price": "RS. 10,000",
-  //     "name": "Iphone 6s",
-  //     "description": "Official PTA Approved / Silver",
-  //     "lastUpdated": "Last updated 3 mins ago"
-  //   },
-  //   {
-  //     "productId": "2" ,
-  //     "image": "/images/ad2.jpg",
-  //     "price": "RS. 60,000",
-  //     "name": "Iphone 8-plus",
-  //     "description": "Official PTA Approved / Black",
-  //     "lastUpdated": "Last updated 1 day ago"
-  //   },
-  //   {
-  //     "productId": "3" ,
-  //     "image": "/images/ad3.jpg",
-  //     "price": "RS. 35,000",
-  //     "name": "Iphone 8-plus",
-  //     "description": "Non-PTA / Red",
-  //     "lastUpdated": "Last updated 4 hours ago"
-  //   },
-  //   {
-  //     "productId": "4" ,
-  //     "image": "/images/ad4.jpg",
-  //     "price": "RS. 40,000",
-  //     "name": "Iphone XR",
-  //     "description": "Non-PTA / Non-Active / Black",
-  //     "lastUpdated": "Last updated 46 mins ago"
-  //   },
-  //   {
-  //     "productId": "5" ,
-  //     "image": "/images/ad5.jpg",
-  //     "price": "RS. 70,000",
-  //     "name": "Iphone 11",
-  //     "description": "JV / Black",
-  //     "lastUpdated": "Last updated half an hour ago"
-  //   },
-  //   {
-  //     "productId": "6" ,
-  //     "image": "/images/ad6.jpg",
-  //     "price": "RS. 185,000",
-  //     "name": "Iphone 13 pro max",
-  //     "description": "Non-PTA  / White",
-  //     "lastUpdated": "Last updated 4 days ago"
-  //   },
-  //   {
-  //     "productId": "7" ,
-  //     "image": "/images/ad7.jpg",
-  //     "price": "RS. 110,000",
-  //     "name": "Iphone 11 pro max",
-  //     "description": "Official PTA Approved / Grey",
-  //     "lastUpdated": "Last updated 2 weeks ago"
-  //   },
-  //   {
-  //     "productId": "8" ,
-  //     "image": "/images/ad8.jpg",
-  //     "price": "RS. 135,000",
-  //     "name": "Iphone 13 pro",
-  //     "description": "Non-PTA / White",
-  //     "lastUpdated": "Last updated 7 hours ago"
-  //   },
-  //   {
-  //     "productId": "9" ,
-  //     "image": "/images/ad9.jpg",
-  //     "price": "RS. 85,000",
-  //     "name": "Iphone XS",
-  //     "description": "Official PTA Approved / Black",
-  //     "lastUpdated": "Last updated 46 mins ago"
-  //   },
-  //   { 
-  //     "productId": "10" ,
-  //     "image": "/images/ad10.jpg",
-  //     "price": "RS. 42,000",
-  //     "name": "Iphone X",
-  //     "description": "JV / White",
-  //     "lastUpdated": "Last updated half an hour ago"
-  //   },
-  //   {
-  //     "productId": "11" ,
-  //     "image": "/images/ad11.jpg",
-  //     "price": "RS. 110,000",
-  //     "name": "Iphone 11",
-  //     "description": "Official PTA Approved / White",
-  //     "lastUpdated": "Last updated one day ago"
-  //   },
-  //   {
-  //     "productId": "12" ,
-  //     "image": "/images/ad12.jpg",
-  //     "price": "RS. 125,000",
-  //     "name": "Iphone 11 pro max ",
-  //     "description": "JV / Silverish Grey",
-  //     "lastUpdated": "Last updated three hour ago"
-  //   },
-  // ];
