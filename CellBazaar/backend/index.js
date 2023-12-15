@@ -67,3 +67,30 @@ console.log(phones);
           res.status(500).json({ message: 'Internal Server Error' });
         }
       });
+
+
+      // ...
+      app.put("/cellBazaar/update/:id", async (req, res) => {
+        const productId = req.params.id;
+      
+        try {
+          const updatedProduct = await productModel.findByIdAndUpdate(
+            productId,
+            { $set: req.body }, // Update with the data sent in the request body
+            { new: true, useFindAndModify: false }
+          );
+      
+          if (updatedProduct) {
+            console.log('Product updated successfully:', updatedProduct);
+            res.json(updatedProduct);
+          } else {
+            console.log('Product not found');
+            res.status(404).json({ message: 'Product not found' });
+          }
+        } catch (error) {
+          console.error('Error updating product:', error);
+          res.status(500).json({ message: 'Internal Server Error' });
+        }
+      });
+      
+// ...

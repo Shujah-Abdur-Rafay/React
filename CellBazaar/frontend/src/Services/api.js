@@ -17,3 +17,17 @@ export const deleteViaAxios = async (id) => {
     alert("youre registered");
    await axios.post(`${url}/cellBazaarsignup`,userData);
 };
+
+
+
+
+export const updateProductViaAxios = async (modelNumber, updatedData) => {
+  try {
+    const response = await axios.put(`${url}/cellBazaar/update/${modelNumber}`, updatedData);
+    alert("Product updated!");
+    return response.data;
+  } catch (error) {
+    console.error('Error updating product:', error);
+    throw error;
+  }
+};

@@ -38,6 +38,7 @@ setView({id:e.target.value});
   return (
     <div
     style={{
+      marginLeft:'100px',
       display: 'block',
       position: 'fixed',
       top: '50%',

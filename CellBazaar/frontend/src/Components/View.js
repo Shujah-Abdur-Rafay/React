@@ -82,6 +82,7 @@ const View = () => {
     <div>
       <div
         style={{
+          marginLeft:'100px',
           display: 'block',
           position: 'fixed',
           top: '50%',

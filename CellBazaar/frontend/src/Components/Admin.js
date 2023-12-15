@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react";
 import Admnu from "./Admnu";
 import Add from "./Add";
@@ -6,6 +5,7 @@ import Delete from "./Delete";
 import Update from "./Update";
 import View from "./View";
 import { type } from "../App";
+import Menubar from "./Navbr";
 
 function Admin() {
   const adminType = useContext(type);
@@ -13,23 +13,28 @@ function Admin() {
   const getViewComponent = () => {
     switch (adminType) {
       case "add":
-        return <Add/>;
+        return <Add />;
       case "view":
         return <View />;
       case "update":
         return <Update />;
       case "delete":
-        return <Delete/>;
+        return <Delete />;
+      default:
+        return null;
     }
   }
 
   return (
     <div className="container-fluid">
-      <div className="row align-items-end">
-        <Admnu />
-      </div>
-      <div style={{marginTop:'1em'}}  className="row align-items-end">
-        {getViewComponent()}
+      <Menubar/>
+      <div className="row">
+        <div className="col-md-3 d-flex flex-column">
+          <Admnu />
+        </div>
+        <div className="col-md-9" style={{ marginTop: '6em',marginLeft:'-2rem' }}>
+          {getViewComponent()}
+        </div>
       </div>
     </div>
   );

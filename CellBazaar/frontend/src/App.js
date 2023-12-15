@@ -21,6 +21,7 @@
    
      <Routes>
       
+
  <Route path="/Admin" element={<Admin type="none"/>}/>
  <Route path="" element={<LandingPage />}/>
  <Route path="/about" element={<AboutUs />}/>
