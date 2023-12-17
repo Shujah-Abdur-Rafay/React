@@ -25,14 +25,14 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 app.post("/cellBazaar",async (req , res)=>{
   
-const post=new productModel({
-  productId: req.body.id,
-  name:req.body.name,
-  image:req.body.image,
-  price:req.body.price,
-  description:req.body.description,
-  lastUpdated:Date(),
-});
+// const post=new productModel({
+//   productId: req.body.id,
+//   name:req.body.name,
+//   image:req.body.image,
+//   price:req.body.price,
+//   description:req.body.description,
+//   lastUpdated:Date(),
+// });
 
 console.log("Data Entered");
 await post.save();
@@ -45,11 +45,11 @@ res.json(phones);
 console.log(phones);
   });
 
-  app.post("/cellBazaardel/:id",async (req , res)=>{
+  // app.post("/cellBazaardel/:id",async (req , res)=>{
   
-    const id=req.params.id.slice(1);
-    await productModel.findByIdAndDelete(id);
-      });
+  //   const id=req.params.id.slice(1);
+  //   await productModel.findByIdAndDelete(id);
+  //     });
 
 
       app.post("/cellBazaarsignup", async (req, res) => {
