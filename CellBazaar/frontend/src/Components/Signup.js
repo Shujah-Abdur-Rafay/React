@@ -1,9 +1,9 @@
+
 import React, { useState } from 'react';
+import login from './Login.css';
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
-import { sendUserViaAxios } from '../Services/api';
-
-import './Login.css'; // Import your CSS file here if needed
+import { senduserViaAxios } from '../Services/api';
 
 export default function Signup() {
     // State variables to store user input
@@ -12,30 +12,21 @@ export default function Signup() {
     const [phoneNumber, setPhoneNumber] = useState('');
 
     // Function to handle sign-up button click
-    const handleSignUp = async (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
-
-        // Assuming sendUserViaAxios accepts an object with user data
+    const handleSignUp = () => {
+        // Assuming sendMessageViaAxios accepts an object with user data
         const userData = {
             username,
             password,
             phoneNumber,
         };
 
-        console.log("data collected from sign up page ", userData);
+        console.log("data collected from sign up page ",userData);
 
-        try {
-            const response = await sendUserViaAxios(userData);
-            // Handle the response if needed
-            console.log('Signup successful:', response);
-        } catch (error) {
-            // Handle errors
-            console.error('Error during signup:', error);
-        }
+        senduserViaAxios(userData);
     };
 
     return (
-        <div className="wrapper bg-white" style={{ marginTop: '6rem' }}>
+        <div className="wrapper bg-white " style={{ marginTop: '6rem' }}>
             {/* Navigation bar */}
             <Menubar />
             {/* Heading */}
