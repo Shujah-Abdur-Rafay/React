@@ -10,7 +10,8 @@
  import AboutUs from './Components/AboutUs';
  import Reviews from './Components/Reviews';
  import FAQs from './Components/FAQs';
- 
+
+
  export const type=createContext();
 
 
