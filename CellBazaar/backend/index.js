@@ -32,7 +32,6 @@ mongoose.connect(url).then(()=>{
   console.log("kuch ghalt hogya hai");
 });
 
-
 app.listen(5000);
 
 app.use(bodyParser.json({extended : true}));
