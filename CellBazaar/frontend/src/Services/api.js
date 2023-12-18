@@ -3,6 +3,12 @@ import axios from "axios"
 
 const url = "http://localhost:5000";
 
+export const senduserViaAxios = async (userData) => {
+  alert("youre registered");
+ await axios.post(`${url}/cellBazaarsignup`,userData);
+};
+
+
 export const sendMessageViaAxios = async (data) => {
     alert("ADDED");
    await axios.post(`${url}/cellBazaar`,data);
@@ -14,10 +20,6 @@ export const deleteViaAxios = async (id) => {
     return await axios.post(`${url}/cellBazaardel/:${id}`,id);
   };
 
-  export const senduserViaAxios = async (userData) => {
-    alert("youre registered");
-   await axios.post(`${url}/cellBazaarsignup`,userData);
-};
 
 
 
