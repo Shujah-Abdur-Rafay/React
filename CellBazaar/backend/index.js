@@ -14,7 +14,7 @@ const app = express();
 // }));
 app.use(cors(
 {
-  origin:["https://cellbazaar-user.vercel.app"],
+  origin:"*",
   methods:["POST","GET","PUT","DELETE"],
 }
 ));
