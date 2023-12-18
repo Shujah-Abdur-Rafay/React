@@ -11,7 +11,7 @@ const app = express();
 const corsOptions = {
   origin: "https://cellbazaar-user.vercel.app",
   methods: "POST, GET, PUT, DELETE",
-  optionsSuccessStatus: 204,
+  
   credentials: true,  // If you need to include cookies or authentication headers
 };
 
