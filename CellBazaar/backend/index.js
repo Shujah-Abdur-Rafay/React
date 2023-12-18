@@ -8,15 +8,11 @@ import SignUpModel from "./models/signupmodel.js";
 
 const app = express();
 
-const corsOptions = {
-  origin: "https://cellbazaar-user.vercel.app",
-  methods: "POST, GET, PUT, DELETE",
+app.use(cors({
+  origin: ["https://cellbazaar-user.vercel.app"],
+  methods: ["POST", "GET"],
   
-  credentials: true,  // If you need to include cookies or authentication headers
-};
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+}));
 app.use(express.json());
 
 const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority";
