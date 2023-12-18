@@ -15,7 +15,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/test?retryWrites=true&w=majority";
+const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(url).then(()=>{
   console.log("connected to mongodb ");
