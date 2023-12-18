@@ -10,12 +10,12 @@ const app = express();
 
 app.use(cors(
   {
-origin: ["https://cellbazaar-user.vercel.app"], 
+    origin: '*', 
 methods: ["POST", "GET"],
 credentials:true,
   }
 ));
-app.use(express.json())
+app.use(express.json());
 
 const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/test?retryWrites=true&w=majority";
 
