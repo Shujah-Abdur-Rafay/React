@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors(
   {
-origin: ["http://localhost:3000"], 
+origin: ["https://cellbazaar-user.vercel.app"], 
 methods: ["POST", "GET"],
   }
 ));

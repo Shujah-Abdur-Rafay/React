@@ -75,15 +75,10 @@ const View = () => {
 
   const handleViewButtonClick = async () => {
     try {
-      const res = await axios.post('https://cellbazaar-api.vercel.app/', {
-        name: 'your_name_value',
-        email: 'your_email_value',
-        password: 'your_password_value',
-      });
+      const res = await getViaAxios();
 
-      console.log(res.data); // Log the response from the server
-
-      // Assuming the response contains the product ID, update the state
+      console.log(res.data); 
+      
       setViewProductId(res.data.productId);
       setIsViewing(true);
     } catch (error) {
