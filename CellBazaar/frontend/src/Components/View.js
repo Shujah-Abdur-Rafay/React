@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import axios from 'axios';
 import { getViaAxios } from '../Services/api';
 
 const ProductView = ({ productId }) => {
@@ -14,8 +15,9 @@ const ProductView = ({ productId }) => {
 
         if (selectedProduct) {
           setProduct(selectedProduct);
+        } else {
+          alert('Not Found');
         }
-        else{alert("Not Found")}
       } catch (error) {
         console.error('Error fetching product data:', error);
       }
@@ -25,9 +27,11 @@ const ProductView = ({ productId }) => {
   }, [productId]);
 
   if (!product) {
-    return <div>
-      {/* No product found for the given ID. */}
-      </div>;
+    return (
+      <div>
+        {/* No product found for the given ID. */}
+      </div>
+    );
   }
 
   const cardTextStyle = {
@@ -69,20 +73,34 @@ const View = () => {
   const [viewProductId, setViewProductId] = useState('');
   const [isViewing, setIsViewing] = useState(false);
 
-  const handleViewButtonClick = () => {
-    setIsViewing(true);
+  const handleViewButtonClick = async () => {
+    try {
+      const res = await axios.post('https://cellbazaar-api.vercel.app/', {
+        name: 'your_name_value',
+        email: 'your_email_value',
+        password: 'your_password_value',
+      });
+
+      console.log(res.data); // Log the response from the server
+
+      // Assuming the response contains the product ID, update the state
+      setViewProductId(res.data.productId);
+      setIsViewing(true);
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
   };
 
   const handleCancelClick = () => {
     setIsViewing(false);
-    setViewProductId(''); // Reset the input field when canceling
+    setViewProductId('');
   };
 
   return (
     <div>
       <div
         style={{
-          marginLeft:'100px',
+          marginLeft: '100px',
           display: 'block',
           position: 'fixed',
           top: '50%',
