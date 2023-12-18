@@ -9,7 +9,10 @@ import SignUpModel from "./models/signupmodel.js";
 const app = express();
 
 app.use(cors(
- 
+  {
+origin: ["https://cellbazaar-user.vercel.app"], 
+methods: ["POST", "GET"],
+  }
 ));
 app.use(express.json())
 
