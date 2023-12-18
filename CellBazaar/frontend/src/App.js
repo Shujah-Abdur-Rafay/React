@@ -11,7 +11,8 @@
  import Reviews from './Components/Reviews';
  import FAQs from './Components/FAQs';
 
-
+ axios.defaults.withCredentials=true
+ 
  export const type=createContext();
  function App() {
    return (
