@@ -1,5 +1,5 @@
 import axios from "axios";
-import { sendUserViaAxios as localSendUserViaAxios } from '../Services/api';
+// import { sendUserViaAxios as localSendUserViaAxios } from '../Services/api';
 
 axios.defaults.withCredentials = true;
 
@@ -25,16 +25,16 @@ export const deleteViaAxios = async (id) => {
   }
 };
 
-export const sendUserViaAxios = async (name, email, password) => {
-  try {
-    const response = await axios.post(`${apiUrl}/cellBazaarsignup`, { name, email, password });
-    alert("You're registered");
-    return response.data;
-  } catch (error) {
-    console.error('Error registering user:', error);
-    throw error;
-  }
-};
+// export const sendUserViaAxios = async (name, email, password) => {
+//   try {
+//     const response = await axios.post(`${apiUrl}/cellBazaarsignup`, { name, email, password });
+//     alert("You're registered");
+//     return response.data;
+//   } catch (error) {
+//     console.error('Error registering user:', error);
+//     throw error;
+//   }
+// };
 
 export const updateProductViaAxios = async (modelNumber, updatedData) => {
   try {
