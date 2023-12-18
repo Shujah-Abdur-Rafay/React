@@ -1,7 +1,7 @@
 
 import axios from "axios"
 
-const url = "https://cellbazaar-api.vercel.app/cellBazaar";
+const url = "https://cellbazaar-api.vercel.app";
 
 export const senduserViaAxios = async (userData) => {
   alert("youre registered");
