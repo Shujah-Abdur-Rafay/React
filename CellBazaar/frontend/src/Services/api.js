@@ -2,7 +2,7 @@
 import axios from "axios"
 
 const url = "https://cellbazaar-api.vercel.app";
-
+// https://cellbazaar-api.vercel.app
 export const senduserViaAxios = async (userData) => {
   alert("youre registered");
  await axios.post(`${url}/cellBazaarsignup`,userData);
