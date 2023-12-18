@@ -8,7 +8,18 @@ import SignUpModel from "./models/signupmodel.js";
 
 const app = express();
 
-const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority";
+app.use(cors(
+  {
+origin: ["https://CellBazaar.vercel.app"], 
+methods: ["POST", "GET"],
+credentials: true
+  }
+));
+app.use(express.json())
+
+
+
+const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(url).then(()=>{
   console.log("connected to mongodb ");
