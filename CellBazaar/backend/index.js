@@ -29,7 +29,7 @@ const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites
 mongoose.connect(url).then(()=>{
   console.log("connected to mongodb ");
 }).catch(()=>{
-  console.log("kuch ghalt hogya hai");
+  console.log("kuch ghalt hgya hai");
 });
 
 app.listen(5000);
