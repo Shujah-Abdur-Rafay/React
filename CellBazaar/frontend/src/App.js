@@ -1,15 +1,16 @@
- import 'react-bootstrap';
- import 'bootstrap/dist/css/bootstrap.min.css'; 
- import {Routes, Route} from "react-router-dom";
- import Admin from './Components/Admin';
- import {createContext} from "react";
- import LandingPage from './Components/LandingPage';
- import Product from './Components/CardS';
- import Logins from './Components/Login';
- import SignUp from './Components/Signup';
- import AboutUs from './Components/AboutUs';
- import Reviews from './Components/Reviews';
- import FAQs from './Components/FAQs';
+import React from 'react';
+import 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  // Import BrowserRouter
+import Admin from './Components/Admin';
+import { createContext } from 'react';
+import LandingPage from './Components/LandingPage';
+import Product from './Components/CardS';
+import Logins from './Components/Login';
+import SignUp from './Components/Signup';
+import AboutUs from './Components/AboutUs';
+import Reviews from './Components/Reviews';
+import FAQs from './Components/FAQs';
 
 
  export const type=createContext();

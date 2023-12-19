@@ -7,24 +7,27 @@ import { getViaAxios } from '../Services/api';
 const ProductView = ({ productId }) => {
   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await getViaAxios();
-        const selectedProduct = res.data.find((p) => p.productId === productId);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const res = await getViaAxios();
+      const selectedProduct = res.data.find((p) => p.productId === productId);
 
-        if (selectedProduct) {
-          setProduct(selectedProduct);
-        } else {
-          alert('Not Found');
-        }
-      } catch (error) {
-        console.error('Error fetching product data:', error);
+      if (selectedProduct) {
+        setProduct(selectedProduct);
+      } else {
+        console.error('Product not found');
+        alert('Not Found');
       }
-    };
+    } catch (error) {
+      console.error('Error fetching product data:', error);
+      alert('Error fetching product data');
+    }
+  };
 
-    fetchData();
-  }, [productId]);
+  fetchData();
+}, [productId]);
+
 
   if (!product) {
     return (
