@@ -15,13 +15,23 @@ const app = express();
 
 
 
-app.use(cors(
-{
-  origin:"*",
-  methods:["POST","GET","PUT","DELETE"],
-}
-));
-app.use(express.json());
+// app.use(cors(
+// {
+//   origin:"*",
+//   methods:["POST","GET","PUT","DELETE"],
+// }
+// ));
+// app.use(express.json());
+
+const corsOptions = {
+  origin: "https://cellbazaar-user.vercel.app",
+  methods: "POST, GET, PUT, DELETE",
+  optionsSuccessStatus: 204,
+  // credentials: true,  //If you need to include cookies or authentication headers
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 
 const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites=true&w=majority";
