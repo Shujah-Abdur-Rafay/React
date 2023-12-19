@@ -15,12 +15,10 @@ import SignUpModel from "./models/signupmodel.js";
 
 
 
-app.use(cors(
-{
-  origin:"*",
-  methods:["POST","GET","PUT","DELETE"],
-}
-));
+app.use(cors({
+  origin: "https://cellbazaar-user.vercel.app",
+  methods: ["POST", "GET", "PUT", "DELETE"],
+}));
 app.use(express.json());
 
 
