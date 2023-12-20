@@ -6,21 +6,21 @@ import productModel from "./models/productmodel.js";
 import SignUpModel from "./models/signupmodel.js";
 
 
-// const app = express();
+const app = express();
 
-//  app.use(cors({
-//    origin: ["https:cellbazaar-user.vercel.app"],
-//    methods: ["POST", "GET"],
-//  }));
+ app.use(cors({
+   origin: ["https:cellbazaar-user.vercel.app"],
+   methods: ["POST", "GET","PUT","DELETE"],
+ }));
 
 
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// });
 
 app.use(express.json());
 
