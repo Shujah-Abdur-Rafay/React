@@ -1,3 +1,4 @@
+
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
@@ -15,5 +16,4 @@ const productSchema = new mongoose.Schema({
 });
 const productModel = mongoose.model("phone", productSchema);
 export default productModel;
-
 
