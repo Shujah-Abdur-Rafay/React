@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 // import productModel from "./models/productmodel.js";
- // import SignUpModel from "./models/signupmodel.js";
+ import SignUpModel from "./sign.js";
 import productModel from './product.js'
 
 
