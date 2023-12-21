@@ -13,8 +13,7 @@ const productSchema = new mongoose.Schema({
 
   
 });
-
 const productModel = mongoose.model("phone", productSchema);
-
 export default productModel;
+
 
