@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 // import productModel from "./models/productmodel.js";
- import SignUpModel from "./sign.js";
+import SignUpModel from "./sign.js";
 import productModel from './product.js'
 
 
@@ -40,20 +40,20 @@ app.listen(5000);
 app.use(bodyParser.json({extended : true}));
 app.use(bodyParser.urlencoded({extended : true}));
 
-// app.post("/cellBazaar",async (req , res)=>{
+app.post("/cellBazaar",async (req , res)=>{
   
-//      const post=new productModel({
-//        productId: req.body.id,
-//        name:req.body.name,
-//        image:req.body.image,
-//        price:req.body.price,
-//        description:req.body.description,
-//        lastUpdated:Date(),
-//      });
+     const post=new productModel({
+       productId: req.body.id,
+       name:req.body.name,
+       image:req.body.image,
+       price:req.body.price,
+       description:req.body.description,
+       lastUpdated:Date(),
+     });
 
-// console.log("Data Entered");
-// await post.save();
-// });
+console.log("Data Entered");
+await post.save();
+});
 
 app.get("/cellBazaar",async (req , res)=>{
 const phones=await productModel.find();
