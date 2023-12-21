@@ -56,10 +56,9 @@ app.use(bodyParser.urlencoded({extended : true}));
 // });
 
 app.get("/cellBazaar",async (req , res)=>{
-  res.send('reached there');
-// const phones=await productModel.find();
-// res.json(phones);
-// console.log(phones);
+const phones=await productModel.find();
+res.json(phones);
+console.log(phones);
   });
 app.get("/",async (req , res)=>{
   
