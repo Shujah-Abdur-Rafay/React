@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 // import productModel from "./models/productmodel.js";
  // import SignUpModel from "./models/signupmodel.js";
-
+import productModel from './product.js'
 
 
 const app = express();
