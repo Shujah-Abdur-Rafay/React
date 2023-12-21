@@ -40,20 +40,27 @@ app.listen(5000);
 app.use(bodyParser.json({extended : true}));
 app.use(bodyParser.urlencoded({extended : true}));
 
-app.post("/cellBazaar",async (req , res)=>{
-  
-     const post=new productModel({
-       productId: req.body.id,
-       name:req.body.name,
-       image:req.body.image,
-       price:req.body.price,
-       description:req.body.description,
-       lastUpdated:Date(),
-     });
+app.post("/cellBazaar", async (req, res) => {
+  try {
+    const post = new productModel({
+      productId: req.body.id,
+      name: req.body.name,
+      image: req.body.image,
+      price: req.body.price,
+      description: req.body.description,
+      lastUpdated: Date(),
+    });
 
-console.log("Data Entered");
-await post.save();
+    console.log("Data Entered");
+    await post.save();
+    
+    res.status(200).json({ message: "Product saved successfully" });
+  } catch (error) {
+    console.error("Error saving product:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
+
 
 app.get("/cellBazaar",async (req , res)=>{
 const phones=await productModel.find();
