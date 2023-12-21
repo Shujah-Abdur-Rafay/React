@@ -1,29 +1,31 @@
-
 import React, { useState } from 'react';
-import login from './Login.css';
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
 import { senduserViaAxios } from '../Services/api';
 
 export default function Signup() {
-    // State variables to store user input
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
-    // Function to handle sign-up button click
-    const handleSignUp = () => {
-        // Assuming sendMessageViaAxios accepts an object with user data
-        const userData = {
-            username,
-            password,
-            phoneNumber,
-        };
+    const handleSignUp = async () => {
+        try {
+            const response = await senduserViaAxios({
+                username,
+                password,
+                phoneNumber,
+            });
 
-        console.log("data collected from sign up page ",userData);
+            // Save the token to local storage or state
+            const token = response.data.token;
+            console.log('JWT Token:', token);
 
-        senduserViaAxios(userData);
+            // Redirect or perform other actions after successful signup
+        } catch (error) {
+            console.error('Signup Error:', error.response.data.error);
+        }
     };
+
 
     return (
         <div className="wrapper bg-white " style={{ marginTop: '6rem' }}>
