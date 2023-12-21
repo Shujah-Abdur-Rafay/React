@@ -6,6 +6,7 @@ import express from "express";
 // import SignUpModel from "./models/signupmodel.js";
 
 
+
 const app = express();
 
  app.use(cors({
@@ -60,6 +61,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 // res.json(phones);
 // console.log(phones);
 //   });
+app.get("/",async (req , res)=>{
+  
+res.send('Hello World');
+  });
 
       //  app.post("/cellBazaardel/:id",async (req , res)=>{
   
