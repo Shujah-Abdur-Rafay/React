@@ -55,12 +55,12 @@ app.use(bodyParser.urlencoded({extended : true}));
 // await post.save();
 // });
 
-// app.get("/cellBazaar",async (req , res)=>{
-  
+app.get("/cellBazaar",async (req , res)=>{
+  res.send('reached there');
 // const phones=await productModel.find();
 // res.json(phones);
 // console.log(phones);
-//   });
+  });
 app.get("/",async (req , res)=>{
   
 res.send('Hello World');
