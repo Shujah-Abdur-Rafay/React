@@ -65,53 +65,53 @@ app.get("/",async (req , res)=>{
 res.send('Hello World');
   });
 
-      //  app.post("/cellBazaardel/:id",async (req , res)=>{
+       app.post("/cellBazaardel/:id",async (req , res)=>{
   
-      //    const id=req.params.id.slice(1);
-      //    await productModel.findByIdAndDelete(id);
-      //      });
+         const id=req.params.id.slice(1);
+         await productModel.findByIdAndDelete(id);
+           });
 
 
-      // app.post("/cellBazaarsignup", async (req, res) => {
-      //   try {
-      //     const post = new SignUpModel({
-      //       username: req.body.username,
-      //       password: req.body.password,
-      //       phoneNo: req.body.phoneNo,
-      //     });
+      app.post("/cellBazaarsignup", async (req, res) => {
+        try {
+          const post = new SignUpModel({
+            username: req.body.username,
+            password: req.body.password,
+            phoneNo: req.body.phoneNo,
+          });
       
-      //     await post.save();
-      //     res.json(post);
-      //   } catch (error) {
-      //     console.error(error);
-      //     res.status(500).json({ message: 'Internal Server Error' });
-      //   }
-      // });
+          await post.save();
+          res.json(post);
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: 'Internal Server Error' });
+        }
+      });
 
 
-      // ...
-      // app.put("/cellBazaar/update/:id", async (req, res) => {
-      //   const productId = req.params.id;
+      ...
+      app.put("/cellBazaar/update/:id", async (req, res) => {
+        const productId = req.params.id;
       
-      //   try {
-      //     const updatedProduct = await productModel.findByIdAndUpdate(
-      //       productId,
-      //       { $set: req.body }, // Update with the data sent in the request body
-      //       { new: true, useFindAndModify: false }
-      //     );
+        try {
+          const updatedProduct = await productModel.findByIdAndUpdate(
+            productId,
+            { $set: req.body }, // Update with the data sent in the request body
+            { new: true, useFindAndModify: false }
+          );
       
-      //     if (updatedProduct) {
-      //       console.log('Product updated successfully:', updatedProduct);
-      //       res.json(updatedProduct);
-      //     } else {
-      //       console.log('Product not found');
-      //       res.status(404).json({ message: 'Product not found' });
-      //     }
-      //   } catch (error) {
-      //     console.error('Error updating product:', error);
-      //     res.status(500).json({ message: 'Internal Server Error' });
-      //   }
-      // });
+          if (updatedProduct) {
+            console.log('Product updated successfully:', updatedProduct);
+            res.json(updatedProduct);
+          } else {
+            console.log('Product not found');
+            res.status(404).json({ message: 'Product not found' });
+          }
+        } catch (error) {
+          console.error('Error updating product:', error);
+          res.status(500).json({ message: 'Internal Server Error' });
+        }
+      });
       
 // ...
 
