@@ -104,7 +104,7 @@ export default function Signup() {
                 </button>
 
                 {/* OAUTH */}
-                <button className="btn btn-block text-center my-3" onClick={handleSignUp}>
+                
                 <GoogleLogin
                 onSuccess={credentialResponse => {
                 console.log(credentialResponse);
@@ -113,7 +113,7 @@ export default function Signup() {
                 console.log('Login Failed');
                 }}
                 />
-                </button>
+               
 
 
 
