@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
 <GoogleOAuthProvider clientId="490610580186-vbgar053492d3lhddqdob2nd21phd4o1.apps.googleusercontent.com">
+    
  <BrowserRouter>
   <App />
  </BrowserRouter>

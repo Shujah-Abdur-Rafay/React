@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
 import { senduserViaAxios } from '../Services/api';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 
 export default function Signup() {
@@ -28,7 +27,6 @@ export default function Signup() {
         }
     };
 
-<GoogleOAuthProvider clientId="490610580186-vbgar053492d3lhddqdob2nd21phd4o1.apps.googleusercontent.com">
     return (
         <div className="wrapper bg-white " style={{ marginTop: '6rem' }}>
             {/* Navigation bar */}
@@ -135,5 +133,5 @@ export default function Signup() {
             </form>
         </div>
     );
-    </GoogleOAuthProvider>
+ 
 }
