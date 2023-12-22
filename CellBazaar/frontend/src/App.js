@@ -13,15 +13,31 @@ import Reviews from './Components/Reviews';
 import FAQs from './Components/FAQs';
 
 
+
  export const type=createContext();
 
 
  function App() {
    return (
+
      <>
+
+
+     
+    <GoogleLogin
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+   />
+
    <div>
 
-   
+  
+
+
      <Routes>
       
 
@@ -39,9 +55,14 @@ import FAQs from './Components/FAQs';
  <Route path="/Product" element={<Product/>}/>
 
      </Routes> 
-  
+
+     
+     
  </div>
      </>
+
+
+
    );
  }
 
