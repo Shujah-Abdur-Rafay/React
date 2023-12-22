@@ -3,6 +3,7 @@ import login from "./Login.css";
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
 import { sendMessageViaAxios } from '../Services/api';
+import { GoogleLogin } from '@react-oauth/google';
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -67,6 +68,18 @@ export default function Login() {
           <button className="btn btn-block text-center my-3" onClick={handleLogin}>
             Log in
           </button>
+
+          {/* OAUTH */}
+                
+          <GoogleLogin
+                onSuccess={credentialResponse => {
+                console.log(credentialResponse);
+                 }}
+                onError={() => {
+                console.log('Login Failed');
+                }}
+                />
+
           <div className="text-center pt-3 text-muted">Not a member? <Link to="../signup"> <p >Sign Up</p></Link></div>
         </form>
       </div>
