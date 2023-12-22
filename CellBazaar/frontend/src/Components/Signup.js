@@ -106,16 +106,16 @@ export default function Signup() {
 
                 {/* OAUTH */}
                 
-                {/* <GoogleLogin
+                <GoogleLogin
                 onSuccess={credentialResponse => {
                 console.log(credentialResponse);
                  }}
                 onError={() => {
                 console.log('Login Failed');
                 }}
-                /> */}
+                />
 
-    <GoogleLogin 
+    {/* <GoogleLogin 
             
             onSuccess={(credentialResponse) =>{
                 const decodedToken = jwtDecode(credentialResponse.credential);
@@ -123,7 +123,7 @@ export default function Signup() {
             }}
     onError={()=>{
         console.log("login failed")
-    }}/>
+    }}/> */}
                
 
 
