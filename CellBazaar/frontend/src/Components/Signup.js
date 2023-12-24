@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
 import { senduserViaAxios } from '../Services/api';
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 export default function Signup() {
     const [username, setUsername] = useState('');
@@ -104,14 +105,15 @@ export default function Signup() {
 
                 {/* OAUTH */}
                 
-                <GoogleLogin
-                onSuccess={credentialResponse => {
-                console.log(credentialResponse);
-                 }}
-                onError={() => {
-                console.log('Login Failed');
-                }}
-                />
+            <GoogleLogin 
+            
+            onSuccess={(credentialResponse) =>{
+                const decodedToken = jwtDecode(credentialResponse.credential);
+                console.log('Decoded Token:', decodedToken);
+            }}
+             onError={()=>{
+             console.log("login failed")
+            }}/>
 
     {/* <GoogleLogin 
             

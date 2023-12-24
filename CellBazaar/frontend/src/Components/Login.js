@@ -3,7 +3,8 @@ import login from "./Login.css";
 import { Link } from 'react-router-dom';
 import Menubar from './Navbr';
 import { sendMessageViaAxios } from '../Services/api';
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -71,14 +72,15 @@ export default function Login() {
 
           {/* OAUTH */}
                 
-          <GoogleLogin
-                onSuccess={credentialResponse => {
-                console.log(credentialResponse);
-                 }}
-                onError={() => {
-                console.log('Login Failed');
-                }}
-                />
+          <GoogleLogin 
+            
+            onSuccess={(credentialResponse) =>{
+                const decodedToken = jwtDecode(credentialResponse.credential);
+                console.log('Decoded Token:', decodedToken);
+            }}
+                onError={()=>{
+                console.log("login failed")
+            }}/>
 
           <div className="text-center pt-3 text-muted">Not a member? <Link to="../signup"> <p >Sign Up</p></Link></div>
         </form>
