@@ -11,7 +11,7 @@ import SignUp from './Components/Signup';
 import AboutUs from './Components/AboutUs';
 import Reviews from './Components/Reviews';
 import FAQs from './Components/FAQs';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+
 
 
  export const type=createContext();
@@ -22,7 +22,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
      <>
    <div>
 
-   <GoogleOAuthProvider clientId="490610580186-vbgar053492d3lhddqdob2nd21phd4o1.apps.googleusercontent.com">
+   
 
 
      <Routes>
@@ -43,7 +43,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
      </Routes> 
 
-     </GoogleOAuthProvider>;
+     
 
      
  </div>
