@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
-// import productModel from "./models/productmodel.js";
+import productModel from "./models/productmodel.js";
 import SignUpModel from "./sign.js";
 import productModel from './product.js'
 import { GoogleOAuthProvider } from '@react-oauth/google';
