@@ -21,9 +21,7 @@ function Admin() {
     }
   };
 
-  const handleLogout = () => {
-    setAuthenticated(false);
-  };
+
 
   const getViewComponent = () => {
     switch (adminType) {
@@ -84,13 +82,11 @@ function Admin() {
         // Show admin panel if authenticated
         <div className="row">
           <div className="col-md-3 d-flex flex-column">
-            <Admnu />
+            <Admnu setAuthenticated={setAuthenticated}/>
           </div>
           <div className="col-md-9" style={{ marginTop: '6em', marginLeft: '-2rem' }}>
             {getViewComponent()}
-            <button type="button" className="btn btn-danger" onClick={handleLogout}>
-              Logout
-            </button>
+           
           </div>
         </div>
       )}
