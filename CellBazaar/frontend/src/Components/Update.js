@@ -45,45 +45,54 @@ function Update() {
       console.error('Error updating model:', error);
     }
   };
-  
 
   return (
     <div
       style={{
-        marginLeft:'100px',
+        marginLeft: '100px',
         display: 'block',
         position: 'fixed',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        background: 'white',
+        background: '#f8f9fa',
         padding: '40px',
-        borderRadius: '8px',
+        borderRadius: '10px',
         textAlign: 'center',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        maxWidth: '400px',
       }}
     >
-      <h2>Updation Process</h2>
-      <p style={{ fontSize: '18px' }}>Enter Model Number:</p>
+      <h2 style={{ color: '#FFA500', marginBottom: '20px', fontSize: '24px' }}>Product Updation</h2>
+      <p style={{ fontSize: '18px', marginBottom: '10px' }}>Enter Model Number:</p>
       <input
         type="text"
         value={modelNumber}
         onChange={handleModelNumberChange}
-        style={{ width: '248px', height: '40px', fontSize: '16px' }}
+        style={{ width: '100%', height: '40px', fontSize: '16px', marginBottom: '20px', padding: '8px' }}
       />
       <br />
-      <button style={{ padding: '10px 20px', fontSize: '16px' }} onClick={handleFetchProductInfo}>
+      <button style={{ background: '#007BFF', color: 'white', padding: '10px 20px', fontSize: '16px', marginBottom: '20px' }} onClick={handleFetchProductInfo}>
         Fetch Product Info
       </button>
       <br />
       {productInfo && (
         <>
-          <p>Name: {productInfo.name}</p>
-          <p>Price: {productInfo.price}</p>
+          <p style={{ fontSize: '16px', marginBottom: '10px' }}>Name: {productInfo.name}</p>
+          <p style={{ fontSize: '16px', marginBottom: '20px' }}>Price: {productInfo.price}</p>
           {/* Include other product details as needed */}
         </>
       )}
       <br />
-      <button style={{ backgroundColor: 'Yellow', color: 'black', padding: '10px 20px', fontSize: '16px' }} onClick={handleConfirmUpdate}>
+      <button
+        style={{
+          backgroundColor: '#FFD700',
+          color: 'black',
+          padding: '10px 20px',
+          fontSize: '16px',
+        }}
+        onClick={handleConfirmUpdate}
+      >
         Confirm Update
       </button>
     </div>

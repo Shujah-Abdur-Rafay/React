@@ -3,8 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import productModel from "./models/productmodel.js";
-import SignUpModel from "./sign.js";
-import productModel from './product.js'
+// import SignUpModel from "./sign.js";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
@@ -13,12 +12,12 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const app = express();
 
- app.use(cors({
-   origin: ["https://cellbazaar-user.vercel.app"],
-   methods: ["POST", "GET","PUT","DELETE"],
- }));
+//  app.use(cors({
+//    origin: ["https://cellbazaar-user.vercel.app"],
+//    methods: ["POST", "GET","PUT","DELETE"],
+//  }));
 
-
+app.use(cors());
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -35,8 +34,8 @@ const url="mongodb+srv://shujah:sar123@cluster0.edpwzne.mongodb.net/?retryWrites
 
 mongoose.connect(url).then(()=>{
   console.log("connected to mongodb ");
-}).catch(()=>{
-  console.log("kuch ghalt hgya hai");
+}).catch((e)=>{
+  console.log(e);
 });
 
 app.listen(5000);
@@ -73,10 +72,9 @@ console.log(phones);
   });
 app.get("/",async (req , res)=>{
   
-res.send('Hello World');
   });
 
-       app.post("/cellBazaardel/:id",async (req , res)=>{
+app.post("/cellBazaardel/:id",async (req , res)=>{
   
          const id=req.params.id.slice(1);
          await productModel.findByIdAndDelete(id);

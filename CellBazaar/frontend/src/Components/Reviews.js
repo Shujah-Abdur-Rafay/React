@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import login from "./Login.css"
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import Menubar from './Navbr';
 
 const Reviews = () => {
@@ -10,16 +10,15 @@ const Reviews = () => {
     { id: 3, name: 'Shubana Naseem', rating: 5, comment: 'Highly recommended. Quality products.' },
   ]);
 
+  const [visibleReviews, setVisibleReviews] = useState(6);
+
   const handleSubmitReview = (e) => {
     e.preventDefault();
 
-    // Generate a unique ID for the new review
     const newReviewWithId = { ...newReview, id: reviews.length + 1 };
 
-    // Update the reviews state with the new review
     setReviews([...reviews, newReviewWithId]);
 
-    // Clear the form fields after submission
     setNewReview({ name: '', rating: 5, comment: '' });
   };
 
@@ -28,17 +27,29 @@ const Reviews = () => {
     setNewReview({ ...newReview, [name]: value });
   };
 
+  const handleEditReview = (id) => {
+    // Add logic for editing a review
+    console.log(`Edit review with ID ${id}`);
+  };
+
+  const handleDeleteReview = (id) => {
+    // Add logic for deleting a review
+    console.log(`Delete review with ID ${id}`);
+  };
+
   const reviewStyle = {
     textAlign: 'center',
     padding: '50px',
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#FFEFD5', // Very light orange
   };
 
   const headingStyle = {
     fontSize: '36px',
     fontWeight: 'bold',
     marginBottom: '30px',
+    marginTop: '35px', 
     color: '#333',
+    textTransform: 'uppercase',
   };
 
   const reviewCardStyle = {
@@ -46,25 +57,70 @@ const Reviews = () => {
     borderRadius: '8px',
     padding: '20px',
     marginBottom: '20px',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#FFDAB9', // Lighter orange
+    maxHeight: '200px', // Maximum height for the review card
+    overflowY: 'auto', // Add scrollbar for longer reviews
+    position: 'relative', // Make the position relative
+  };
+
+  const formStyle = {
+    marginTop: '30px',
+  };
+
+  const viewMoreButtonStyle = {
+    backgroundColor: '#FFA500', // Orange color
+    color: 'white',
+    border: 'none',
+    padding: '10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer',
+  };
+
+  const viewMoreHandler = () => {
+    setVisibleReviews((prevVisibleReviews) => prevVisibleReviews + 3);
+  };
+
+  const editDeleteIconsStyle = {
+    position: 'absolute',
+    bottom: '10px',
+    right: '10px',
+    display: 'flex',
+    gap: '10px',
   };
 
   return (
-    <div >
-        <Menubar/>
-      <div className="container" style={{marginTop:"7rem"}}>
+    <div>
+      <Menubar />
+      <div className="container" style={reviewStyle}>
         <h1 style={headingStyle}>Customer Reviews</h1>
-        <div>
-          {reviews.map((review) => (
-            <div key={review.id} style={reviewCardStyle}>
-              <h3>{review.name}</h3>
-              <p>Rating: {review.rating} stars</p>
-              <p>{review.comment}</p>
+        <div className="row">
+          {reviews.slice(0, visibleReviews).map((review) => (
+            <div key={review.id} className="col-md-4">
+              <div style={reviewCardStyle}>
+                <h3 style={{ marginBottom: '10px' }}>{review.name}</h3>
+                <p style={{ marginBottom: '10px', maxHeight: '50px', overflowY: 'auto' }}>
+                  {review.comment}
+                </p>
+                <p>Rating: {review.rating} stars</p>
+                <div style={editDeleteIconsStyle}>
+                  <FaEdit style={{ color: 'blue', cursor: 'pointer' }} onClick={() => handleEditReview(review.id)} />
+                  <FaTrash style={{ color: 'red', cursor: 'pointer' }} onClick={() => handleDeleteReview(review.id)} />
+                </div>
+              </div>
             </div>
           ))}
         </div>
+        {visibleReviews < reviews.length && (
+          <div className="d-flex justify-content-center">
+            <button style={viewMoreButtonStyle} onClick={viewMoreHandler}>
+              View More
+            </button>
+          </div>
+        )}
         <hr />
         <h2>Add Your Review</h2>
-        <form onSubmit={handleSubmitReview}>
+        <form onSubmit={handleSubmitReview} style={formStyle}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Your Name:

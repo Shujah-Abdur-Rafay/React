@@ -23,7 +23,7 @@ export default function Login() {
     };
   
     return (
-      <div className="wrapper bg-white " style={{ marginTop: "7rem" }}>
+      <div className="wrapper bg-white " style={{ marginTop: "6rem" }}>
         <Menubar />
         <div className="h2 text-center">Cell Bazaar</div>
         <div className="h4 text-muted text-center pt-2">Enter your login details</div>

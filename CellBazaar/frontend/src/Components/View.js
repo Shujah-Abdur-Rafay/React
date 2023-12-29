@@ -1,42 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 import { getViaAxios } from '../Services/api';
 
-const ProductView = ({ productId }) => {
-  const [product, setProduct] = useState(null);
-
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const res = await getViaAxios();
-      const selectedProduct = res.data.find((p) => p.productId === productId);
-
-      if (selectedProduct) {
-        setProduct(selectedProduct);
-      } else {
-        console.error('Product not found');
-        alert('Not Found');
-      }
-    } catch (error) {
-      console.error('Error fetching product data:', error);
-      alert('Error fetching product data');
-    }
-  };
-
-  fetchData();
-}, [productId]);
-
-
-  if (!product) {
-    return (
-      <div>
-        {/* No product found for the given ID. */}
-      </div>
-    );
-  }
-
+const ProductView = ({ product }) => {
   const cardTextStyle = {
     fontSize: '16px',
   };
@@ -46,7 +14,7 @@ useEffect(() => {
   };
 
   return (
-    <div style={{ paddingLeft: '31%', paddingRight: '31.6%', paddingTop: '3%' }}>
+    <div style={{ margin: '20px' }}>
       <CardGroup>
         <Card>
           <Card.Img
@@ -56,6 +24,7 @@ useEffect(() => {
               borderTopLeftRadius: '10px',
               borderTopRightRadius: '10px',
               width: '500px',
+              
             }}
           />
           <Card.Body>
@@ -75,67 +44,62 @@ useEffect(() => {
 const View = () => {
   const [viewProductId, setViewProductId] = useState('');
   const [isViewing, setIsViewing] = useState(false);
+  const [product, setProduct] = useState(null);
 
   const handleViewButtonClick = async () => {
     try {
       const res = await getViaAxios();
 
-      console.log(res.data); 
-      
-      setViewProductId(res.data.productId);
-      setIsViewing(true);
+      const selectedProduct = res.data.find((p) => p.productId === viewProductId);
+
+      if (selectedProduct) {
+        setProduct(selectedProduct);
+        setIsViewing(true);
+      } else {
+        console.error('Product not found');
+        alert('Not Found');
+      }
     } catch (error) {
-      console.error('Error posting data:', error);
+      console.error('Error fetching product data:', error);
+      alert('Error fetching product data');
     }
   };
 
   const handleCancelClick = () => {
     setIsViewing(false);
     setViewProductId('');
+    setProduct(null);
   };
 
   return (
-    <div>
-      <div
-        style={{
-          marginLeft: '100px',
-          display: 'block',
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          background: 'white',
-          padding: '40px',
-          borderRadius: '8px',
-          textAlign: 'center',
-        }}
-      >
-        <h2>View Record</h2>
-        <p style={{ fontSize: '18px' }}>Enter Model Number:</p>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',marginTop:'-80px' }}>
+      <div style={{ background: '#f8f9fa', padding: '40px', borderRadius: '10px', textAlign: 'center', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', maxWidth: '400px' }}>
+        <h2 style={{ color: '#198754', marginBottom: '20px' }}>View Product</h2>
         <input
           type="text"
-          style={{ width: '222px', height: '40px', fontSize: '16px' }}
+          style={{ width: '100%', height: '40px', fontSize: '16px', marginBottom: '20px', padding: '8px' }}
+          placeholder="Enter Model Number"
           value={viewProductId}
           onChange={(e) => setViewProductId(e.target.value)}
         />
 
-        <br />
-        <button style={{ padding: '10px 20px', fontSize: '16px' }} onClick={handleCancelClick}>
+        <Button
+          variant="secondary"
+          style={{ fontSize: '16px', marginRight: '10px', padding: '10px 20px' }}
+          onClick={handleCancelClick}
+        >
           Cancel
-        </button>
-        <button
-          style={{
-            backgroundColor: 'green',
-            color: 'white',
-            padding: '10px 20px',
-            fontSize: '16px',
-          }}
+        </Button>
+        <Button
+          variant="success"
+          style={{ fontSize: '16px', padding: '10px 20px' }}
           onClick={handleViewButtonClick}
         >
-          View Record
-        </button>
+          View Product
+        </Button>
+
+        {isViewing && product && <ProductView product={product} />}
       </div>
-      {isViewing && <ProductView productId={viewProductId} />}
     </div>
   );
 };

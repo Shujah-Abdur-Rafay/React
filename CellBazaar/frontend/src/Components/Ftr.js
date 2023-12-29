@@ -16,7 +16,7 @@ function Ftr() {
         <Card.Text style={{ fontSize: '20px' }}>
           Email: cellbazaar@gmail.com <br /> Contact: +92-317-5804969
         </Card.Text>
-        <Card.Title style={{ fontSize: '23px' }}>THANKS FOR VISITING !</Card.Title>
+        {/* <Card.Title style={{ fontSize: '23px' }}>THANKS FOR VISITING !</Card.Title>
         <Link to="/about" style={linkStyle} onMouseOver={(e) => e.target.style.color = 'red'} onMouseOut={(e) => e.target.style.color = 'black'}>
           <Card.Title style={linkStyle}>About Us</Card.Title>
         </Link>
@@ -25,7 +25,7 @@ function Ftr() {
         </Link>
         <Link to="/faqs" style={linkStyle} onMouseOver={(e) => e.target.style.color = 'red'} onMouseOut={(e) => e.target.style.color = 'black'}>
           <Card.Title style={linkStyle}>FAQs</Card.Title>
-        </Link>
+        </Link> */}
       </Card.Body>
       <Card.Footer className="text-muted" style={{ fontSize: '18px' }}>
         Copyright © CellBazaar.pk

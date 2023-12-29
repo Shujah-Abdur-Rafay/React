@@ -18,9 +18,11 @@ export default function LandingPage() {
 
 
 <div className="container" style={{ marginTop: '400px' }}>
-<div className="text-center my-5">
-  <h2 style={{ fontSize: '60px',color: 'darkgreen' }}>Buy Certified Phones </h2> 
-</div>
+  <div className="text-center my-5">
+    <h2 style={{ fontSize: '80px', color: 'darkgreen', fontFamily: 'Brush Script MT, cursive' }}>
+      Buy Certified Phones
+    </h2>
+  </div>
 </div>
 
 

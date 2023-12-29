@@ -29,7 +29,7 @@ export default function Signup() {
     };
 
     return (
-        <div className="wrapper bg-white " style={{ marginTop: '6rem' }}>
+        <div className="wrapper bg-white " style={{ marginTop: '5.5rem'}}>
             {/* Navigation bar */}
             <Menubar />
             {/* Heading */}

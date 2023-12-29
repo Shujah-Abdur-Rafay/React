@@ -1,108 +1,46 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import { FaHome, FaPlus, FaTrashAlt, FaEye, FaEdit } from 'react-icons/fa';
 
-function Admnu() {
+const Admnu = () => {
   return (
-    <Navbar expand="lg" style={{ backgroundColor: '#FFD700',height:"36.4rem",marginTop:"50px",marginRight:"50px",marginLeft:"-11px" }} className="d-flex flex-column">
-      <Container>
-        {/* <Navbar.Brand href="/home" style={{ fontWeight: 'bold', fontSize: '24px', color: '#333333' }}>
-          <span style={{ color: "#333333", fontWeight: "bold" }}>Admin</span>
-          <span style={{ color: "#F47542", fontWeight: "bold" }}>Panel</span>
-        </Navbar.Brand> */}
-
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar expand="lg" style={{ marginLeft: '-12px', backgroundColor: '#000', width: '220px', height: '100vh', position: 'fixed', borderRight: '1px solid #dee2e6' }}>
+      <Container className="d-flex flex-column justify-content-center">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-dark" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto flex-column">
-            <Link to="../" className="my-4">
-              {/* <button
-                style={{
-                  backgroundColor: '#FFA500',
-                  color: 'white',
-                  borderRadius: '20px',
-                  fontSize: '18px',
-                  padding: '8px 30px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              <>
-                HOME
-              > */}
+          <Nav className="flex-column">
+            <Link to="/" className="nav-link text-white text-center mb-2">
+              <FaHome className="me-3" />
+              <span className="fs-4 text-center">Home</span>
             </Link>
 
-            <Link to="/add" className="my-4">
-              <button
-                style={{
-                  marginLeft:'60px',
-                  backgroundColor: '#FFA500',
-                  color: 'white',
-                  borderRadius: '20px',
-                  fontSize: '18px',
-                  padding: '8px 30px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                Add
-              </button>
+            <Link to="/add" className="nav-link text-white text-center mb-2">
+              <FaPlus className="me-3" />
+              <span className="fs-4 text-center">Add</span>
             </Link>
 
-            <Link to="/delete" className="my-4">
-              <button
-                style={{
-                  marginLeft:'60px',
-                  backgroundColor: '#FFA500',
-                  color: 'white',
-                  borderRadius: '20px',
-                  fontSize: '18px',
-                  padding: '8px 30px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                Delete
-              </button>
+            <Link to="/delete" className="nav-link text-white text-center mb-2">
+              <FaTrashAlt className="me-3" />
+              <span className="fs-4 text-center">Delete</span>
             </Link>
 
-            <Link to="/view" className="my-4">
-              <button
-                style={{
-                  marginLeft:'60px',
-                  backgroundColor: '#FFA500',
-                  color: 'white',
-                  borderRadius: '20px',
-                  fontSize: '18px',
-                  padding: '8px 30px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                View
-              </button>
+            <Link to="/view" className="nav-link text-white text-center mb-2">
+              <FaEye className="me-3" />
+              <span className="fs-4 text-center">View</span>
             </Link>
 
-            <Link to="/update" className="my-4">
-              <button
-                style={{
-                  marginLeft:'60px',
-                  backgroundColor: '#FFA500',
-                  color: 'white',
-                  borderRadius: '20px',
-                  fontSize: '18px',
-                  padding: '8px 30px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                Update
-              </button>
+            <Link to="/update" className="nav-link text-white text-center mb-2">
+              <FaEdit className="me-3" />
+              <span className="fs-4 text-center">Update</span>
             </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Admnu;

@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import { getViaAxios } from '../Services/api';
 
 function Product() {
+   const [groupedCells,setGroupedCells]=useState([]);
+  useEffect(async ()=>{
+    setGroupedCells(await getViaAxios());
+  },[])
 
 
   const cardTextStyle = {
