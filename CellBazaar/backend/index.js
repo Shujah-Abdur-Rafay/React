@@ -12,12 +12,12 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const app = express();
 
-//  app.use(cors({
-//    origin: ["https://cellbazaar-user.vercel.app"],
-//    methods: ["POST", "GET","PUT","DELETE"],
-//  }));
+ app.use(cors({
+   origin: ["https://cellbazaar-user.vercel.app"],
+   methods: ["POST", "GET","PUT","DELETE"],
+ }));
 
-app.use(cors());
+// app.use(cors());
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -68,7 +68,7 @@ app.post("/cellBazaar", async (req, res) => {
 app.get("/cellBazaar",async (req , res)=>{
 const phones=await productModel.find();
 res.json(phones);
-console.log(phones);
+
   });
 app.get("/",async (req , res)=>{
   

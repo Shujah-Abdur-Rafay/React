@@ -31,7 +31,7 @@ function Product() {
                   {product.name}<br />
                   {product.description}
                 </Card.Text>
-                <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                <button onClick={}>Add to Cart</button>
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted" style={{ fontSize: '12px' }}>{product.lastUpdated}</small>
